@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>بلند بگو — Out Loud</title>
+<meta name="description" content="تمرین مکالمه‌ی انگلیسی برای بزرگسالان — بلند حرف بزن، بعد بفهم چطور بهتر بگویی." />
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════ صفحه‌ی انتخاب ═══════════════════════════ -->
+<main id="screen-picker" class="screen" data-screen="picker">
+  <header class="masthead">
+    <div class="masthead-mark" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <path d="M5 24 Q5 9 17 9 Q29 9 29 24" stroke="var(--you)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M9 24 Q9 14 17 14 Q25 14 25 24" stroke="var(--partner)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <circle cx="17" cy="26.5" r="2.4" fill="var(--you)"/>
+      </svg>
+    </div>
+    <div class="masthead-text">
+      <h1 class="masthead-title">بلند بگو <span class="masthead-en">Out&nbsp;Loud</span></h1>
+      <p class="masthead-tagline">اتاق تمرین مکالمه — بلند حرف بزن، بعدش بفهم بهتر چطور می‌شد گفت.</p>
+    </div>
+    <label class="level-picker">
+      <span>سطح تو</span>
+      <select id="level-select">
+        <option value="A2">A2 — پایه</option>
+        <option value="B1" selected>B1 — متوسط</option>
+        <option value="B2">B2 — متوسط رو به بالا</option>
+        <option value="C1">C1 — پیشرفته</option>
+      </select>
+    </label>
+  </header>
+
+  <section id="warmup-section" class="warmup" hidden>
+    <div class="warmup-head">
+      <h2>مرور امروز</h2>
+      <p><span id="warmup-count">0</span> عبارت از جلسه‌های قبل آماده‌ی مرورند.</p>
+    </div>
+    <div id="warmup-cards" class="warmup-cards"></div>
+    <button id="warmup-skip" class="btn-ghost" type="button">فعلاً رد کن</button>
+  </section>
+
+  <nav class="lib-tabs" role="tablist" aria-label="نوع تمرین">
+    <button class="lib-tab is-active" role="tab" aria-selected="true" data-target="professional" type="button">کاری</button>
+    <button class="lib-tab" role="tab" aria-selected="false" data-target="everyday" type="button">روزمره</button>
+    <button class="lib-tab" role="tab" aria-selected="false" data-target="topics" type="button">گفت‌وگوی آزاد</button>
+  </nav>
+
+  <section class="lib-panel is-active" data-panel="professional">
+    <div id="grid-professional" class="card-grid"></div>
+  </section>
+  <section class="lib-panel" data-panel="everyday">
+    <div id="grid-everyday" class="card-grid"></div>
+  </section>
+  <section class="lib-panel" data-panel="topics">
+    <div id="grid-topics" class="card-grid"></div>
+  </section>
+</main>
+
+<!-- ═══════════════════════════ صفحه‌ی جلسه (اتاق ضبط) ═══════════════════════════ -->
+<main id="screen-session" class="screen" data-screen="session" hidden>
+  <header class="session-head">
+    <button id="btn-leave-session" class="btn-icon" type="button" aria-label="بازگشت">←</button>
+    <div class="session-head-info">
+      <h2 id="session-title-en" class="session-title-en" dir="ltr"></h2>
+      <p id="session-title-fa" class="session-title-fa"></p>
+    </div>
+    <label class="live-correct-toggle">
+      <input type="checkbox" id="live-correct-checkbox" checked />
+      <span>تصحیح فوری</span>
+    </label>
+  </header>
+
+  <div id="session-brief" class="session-brief">
+    <div class="brief-goal">
+      <strong id="brief-goal-fa"></strong>
+      <span id="brief-goal-en" dir="ltr"></span>
+    </div>
+    <div class="brief-phrases">
+      <p class="brief-phrases-label">عبارت‌های هدف این جلسه:</p>
+      <ul id="brief-phrases-list"></ul>
+    </div>
+    <button id="btn-start-session" class="btn-primary" type="button">شروع مکالمه</button>
+  </div>
+
+  <div id="session-body" class="session-body" hidden>
+    <div class="stage" dir="ltr">
+      <div id="transcript" class="transcript" role="log" aria-live="polite"></div>
+    </div>
+
+    <aside class="rail" dir="rtl" aria-label="پشتیبانی فارسی">
+      <div class="rail-section">
+        <h3>عبارت‌های هدف</h3>
+        <ul id="rail-phrases" class="rail-phrase-list"></ul>
+      </div>
+      <div class="rail-section rail-corrections">
+        <h3>تصحیح‌های زنده</h3>
+        <div id="rail-correction-feed" class="rail-correction-feed">
+          <p class="rail-empty">وقتی چیزی برای تصحیح باشد، همین‌جا و بدون قطع کردن مکالمه نشانت می‌دهم.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer id="session-controls" class="session-controls" hidden>
+    <div class="ribbon-wrap">
+      <div id="ribbon" class="ribbon" role="img" aria-label="سهم صحبت‌کردن"></div>
+      <div class="ribbon-legend">
+        <span><i class="dot dot-you"></i> تو <b id="ribbon-you-pct">0%</b></span>
+        <span><i class="dot dot-partner"></i> طرف مقابل</span>
+      </div>
+    </div>
+
+    <form id="turn-form" class="turn-form">
+      <button id="btn-mic" class="btn-mic" type="button" aria-pressed="false">
+        <span class="mic-icon" aria-hidden="true">●</span>
+        <span class="mic-label">نگه‌دار و حرف بزن</span>
+      </button>
+      <input id="turn-text" class="turn-text" type="text" dir="ltr" placeholder="یا اینجا به انگلیسی تایپ کن…" autocomplete="off" />
+      <button id="btn-send" class="btn-send" type="submit">ارسال</button>
+    </form>
+    <p id="turn-status" class="turn-status" aria-live="polite"></p>
+
+    <button id="btn-end-session" class="btn-ghost btn-end" type="button">پایان جلسه و دیدن جمع‌بندی ←</button>
+  </footer>
+</main>
+
+<!-- ═══════════════════════════ صفحه‌ی جمع‌بندی ═══════════════════════════ -->
+<main id="screen-debrief" class="screen" data-screen="debrief" hidden>
+  <header class="debrief-head">
+    <p class="debrief-eyebrow">جمع‌بندی جلسه</p>
+    <h2 id="debrief-title-en" dir="ltr"></h2>
+  </header>
+
+  <section class="debrief-stats">
+    <div class="stat-card" id="stat-goal">
+      <p class="stat-label">هدف</p>
+      <p id="stat-goal-value" class="stat-value"></p>
+      <p id="stat-goal-reason" class="stat-reason"></p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">سهم صحبت تو</p>
+      <p id="stat-talktime" class="stat-value stat-number"></p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">سطح تخمینی</p>
+      <p id="stat-level" class="stat-value stat-number"></p>
+    </div>
+  </section>
+
+  <section class="debrief-did-well">
+    <h3>این را خوب گفتی</h3>
+    <p id="did-well-quote" class="did-well-quote" dir="ltr"></p>
+  </section>
+
+  <section id="upgrades-section" class="upgrades-section" hidden>
+    <h3>یک پله بالاتر</h3>
+    <div id="upgrades-list" class="upgrades-list"></div>
+  </section>
+
+  <section id="corrections-section" class="corrections-section" hidden>
+    <h3>تصحیح‌های این جلسه</h3>
+    <div id="corrections-list" class="corrections-list"></div>
+  </section>
+
+  <section id="missed-section" class="missed-section" hidden>
+    <h3>این‌ها هم جا داشتند</h3>
+    <div id="missed-list" class="missed-list"></div>
+  </section>
+
+  <footer class="debrief-actions">
+    <button id="btn-retry" class="btn-primary" type="button">دوباره همین را تمرین کن</button>
+    <button id="btn-back-to-picker" class="btn-ghost" type="button">بازگشت به لیست</button>
+  </footer>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>

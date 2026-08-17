@@ -1,0 +1,14 @@
+{
+  "name": "out-loud",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "بلند بگو — تمرین مکالمه‌ی انگلیسی برای بزرگسالان | English speaking practice for adults",
+  "scripts": {
+    "start": "node server/index.mjs",
+    "setup:fonts": "node scripts/setup-fonts.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0"
+  }
+}

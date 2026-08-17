@@ -1,0 +1,245 @@
+{
+  "_note": "گفت‌وگوی آزاد: بدون هدف مشخص، بدون دستور کار پنهان. طرف مقابل واقعاً کنجکاو است و دنبال می‌کند — برای همین follow_ups باید کافی باشد که مکالمه هیچ‌وقت خشک نشود.",
+  "topics": [
+    {
+      "id": "your-city",
+      "level": "A2",
+      "title_en": "Your city",
+      "title_fa": "شهر تو",
+      "partner_name": "Alex",
+      "opening_en": "So — tell me about the city you live in. What's it actually like to live there?",
+      "follow_ups_en": [
+        "What's your favorite neighborhood, and why?",
+        "Has the city changed a lot since you were a kid?",
+        "What would you show a visitor in one day?",
+        "Is there anything about it you'd change?"
+      ],
+      "follow_ups_fa": [
+        "محله‌ی موردعلاقه‌ات کدومه و چرا؟",
+        "شهر از وقتی بچه بودی خیلی عوض شده؟",
+        "یک روزه چی رو به یه مهمون نشون می‌دادی؟",
+        "چیزی هست که دوست داشته باشی عوض بشه؟"
+      ]
+    },
+    {
+      "id": "food-you-grew-up-with",
+      "level": "A2",
+      "title_en": "Food from your childhood",
+      "title_fa": "غذایی که با آن بزرگ شدی",
+      "partner_name": "Alex",
+      "opening_en": "What's a dish that reminds you of being a kid? Something your family always made.",
+      "follow_ups_en": [
+        "Who used to cook it — do you know how to make it yourself now?",
+        "Is it something you'd cook for someone who'd never tried it?",
+        "Has your taste in food changed a lot since then?",
+        "What's a food you couldn't stand as a kid but love now?"
+      ],
+      "follow_ups_fa": [
+        "کی درستش می‌کرد — الان خودت بلدی؟",
+        "برای کسی که تا حالا نخورده، درستش می‌کنی؟",
+        "ذائقه‌ات از اون موقع خیلی عوض شده؟",
+        "غذایی هست که بچگی متنفر بودی ولی الان دوستش داری؟"
+      ]
+    },
+    {
+      "id": "film-you-cant-stop-thinking-about",
+      "level": "B1",
+      "title_en": "A film you can't stop thinking about",
+      "title_fa": "فیلمی که ذهنت را رها نمی‌کند",
+      "partner_name": "Alex",
+      "opening_en": "Is there a movie or show that just stuck with you — one you still think about?",
+      "follow_ups_en": [
+        "What was it about it that got to you?",
+        "Would you recommend it, or is it not for everyone?",
+        "Do you usually rewatch things, or move on?",
+        "What's the last thing you watched that really surprised you?"
+      ],
+      "follow_ups_fa": [
+        "چه چیزیش این‌قدر تو رو گرفت؟",
+        "پیشنهادش می‌کنی یا مال هرکسی نیست؟",
+        "معمولاً دوباره می‌بینی یا رد می‌شی؟",
+        "آخرین چیزی که دیدی و واقعاً غافلگیرت کرد چی بود؟"
+      ]
+    },
+    {
+      "id": "best-and-worst-trip",
+      "level": "B1",
+      "title_en": "Your best and worst trip",
+      "title_fa": "بهترین و بدترین سفرت",
+      "partner_name": "Alex",
+      "opening_en": "Tell me about a trip that went really well — and if you're up for it, one that went really wrong.",
+      "follow_ups_en": [
+        "What made that place special?",
+        "Did anything go wrong that you laugh about now?",
+        "Do you plan trips carefully, or just go?",
+        "Where haven't you been yet that you really want to go?"
+      ],
+      "follow_ups_fa": [
+        "چه چیز اون جا رو خاص می‌کرد؟",
+        "چیزی خراب شد که الان بهش می‌خندی؟",
+        "سفر رو دقیق برنامه‌ریزی می‌کنی یا فقط می‌ری؟",
+        "کجا هنوز نرفتی که خیلی دوست داری بری؟"
+      ]
+    },
+    {
+      "id": "how-your-work-changed",
+      "level": "B2",
+      "title_en": "How your work has changed",
+      "title_fa": "کارت چطور عوض شده",
+      "partner_name": "Alex",
+      "opening_en": "How's your work different now compared to, say, ten years ago?",
+      "follow_ups_en": [
+        "What's something you had to learn that you didn't expect?",
+        "Is there a part of the old way of working you miss?",
+        "What do you think will change next?",
+        "If you started over today, would you choose the same path?"
+      ],
+      "follow_ups_fa": [
+        "چیزی بود که مجبور شدی یاد بگیری و انتظارش رو نداشتی؟",
+        "چیزی از روش قدیمی کار کردن هست که دلت براش تنگ بشه؟",
+        "فکر می‌کنی بعدش چی عوض می‌شه؟",
+        "اگه امروز از اول شروع می‌کردی، همین مسیر رو انتخاب می‌کردی؟"
+      ]
+    },
+    {
+      "id": "ai-in-daily-life",
+      "level": "B2",
+      "title_en": "AI in everyday life",
+      "title_fa": "هوش مصنوعی در زندگی روزمره",
+      "partner_name": "Alex",
+      "opening_en": "How much has AI actually changed your daily life so far — more or less than you expected?",
+      "follow_ups_en": [
+        "What's something you use it for that surprised you?",
+        "Is there anything about it that worries you?",
+        "Do you think it's making people more or less capable?",
+        "What's one thing you'd never let it do for you?"
+      ],
+      "follow_ups_fa": [
+        "چیزی هست که ازش استفاده می‌کنی و خودت هم غافلگیر شدی؟",
+        "چیزی هست که نگرانت کنه؟",
+        "فکر می‌کنی مردم رو تواناتر می‌کنه یا برعکس؟",
+        "چیزی هست که هیچ‌وقت نمی‌ذاری جات انجام بده؟"
+      ]
+    },
+    {
+      "id": "raising-children-differently",
+      "level": "B2",
+      "title_en": "How families raise children differently",
+      "title_fa": "خانواده‌ها فرزندان را چطور متفاوت بزرگ می‌کنند",
+      "partner_name": "Alex",
+      "opening_en": "Do you think kids today are raised differently than your generation was? In what way?",
+      "follow_ups_en": [
+        "What's something your parents did that you'd keep — or change?",
+        "Is there a cultural difference you've noticed in how people raise kids?",
+        "What do you think matters most in the early years?",
+        "Has anything surprised you about how a friend or relative is raising their kids?"
+      ],
+      "follow_ups_fa": [
+        "کاری که والدینت می‌کردن هست که نگه‌داری یا عوض کنی؟",
+        "تفاوت فرهنگی‌ای دیدی توی نحوه‌ی بزرگ کردن بچه؟",
+        "فکر می‌کنی سال‌های اول چی بیشتر اهمیت داره؟",
+        "چیزی درباره‌ی نحوه‌ی بزرگ کردن بچه‌ی یک دوست یا فامیل غافلگیرت کرده؟"
+      ]
+    },
+    {
+      "id": "sleep-and-habits",
+      "level": "B1",
+      "title_en": "Sleep and daily habits",
+      "title_fa": "خواب و عادت‌های روزانه",
+      "partner_name": "Alex",
+      "opening_en": "Are you a morning person or a night person? Has that always been true?",
+      "follow_ups_en": [
+        "What does your ideal morning look like?",
+        "Have you ever tried to change your sleep schedule on purpose?",
+        "What's a small daily habit that actually makes a difference for you?",
+        "What throws your routine off the most?"
+      ],
+      "follow_ups_fa": [
+        "صبح ایده‌آلت چه شکلیه؟",
+        "تا حالا عمداً سعی کردی برنامه‌ی خوابت رو عوض کنی؟",
+        "یک عادت کوچیک روزانه هست که واقعاً براش فرقی می‌کنه؟",
+        "چی بیشتر از همه برنامه‌ات رو به هم می‌ریزه؟"
+      ]
+    },
+    {
+      "id": "money",
+      "level": "B2",
+      "title_en": "Money and how we think about it",
+      "title_fa": "پول و نگاه ما بهش",
+      "partner_name": "Alex",
+      "opening_en": "Did you grow up talking about money openly, or was it kind of a private topic?",
+      "follow_ups_en": [
+        "Has your relationship with money changed as you've gotten older?",
+        "What's something you're happy to spend on, and something you never would?",
+        "Do you think people talk about money too much or too little these days?",
+        "What's one piece of money advice you'd actually pass on?"
+      ],
+      "follow_ups_fa": [
+        "رابطه‌ات با پول با بزرگ‌تر شدن عوض شده؟",
+        "چیزی هست که خوشحال خرجش می‌کنی و چیزی که هیچ‌وقت نه؟",
+        "فکر می‌کنی این روزها آدم‌ها زیادی درباره‌ی پول حرف می‌زنن یا کم؟",
+        "یک توصیه‌ی مالی هست که واقعاً به کسی منتقل کنی؟"
+      ]
+    },
+    {
+      "id": "the-news",
+      "level": "B2",
+      "title_en": "How you follow the news",
+      "title_fa": "چطور اخبار را دنبال می‌کنی",
+      "partner_name": "Alex",
+      "opening_en": "How do you keep up with the news these days — and honestly, how much of it do you trust?",
+      "follow_ups_en": [
+        "Has the way you consume news changed a lot over the years?",
+        "Is there a story lately that really stuck with you?",
+        "Do you ever take a break from the news on purpose?",
+        "How do you check if something you read is actually true?"
+      ],
+      "follow_ups_fa": [
+        "روش دنبال کردن اخبارت طی سال‌ها خیلی عوض شده؟",
+        "خبری اخیراً بوده که واقعاً ذهنت رو درگیر کرده؟",
+        "تا حالا عمداً از اخبار فاصله گرفتی؟",
+        "چطور چک می‌کنی چیزی که خوندی واقعاً درسته؟"
+      ]
+    },
+    {
+      "id": "learning-something-new-as-adult",
+      "level": "B1",
+      "title_en": "Learning something new as an adult",
+      "title_fa": "یاد گرفتن چیز جدید در بزرگسالی",
+      "partner_name": "Alex",
+      "opening_en": "Have you tried learning something completely new recently? How did it go?",
+      "follow_ups_en": [
+        "What's the hardest part of learning as an adult, compared to as a kid?",
+        "Is there something you've always wanted to learn but haven't started?",
+        "What kept you motivated — or what made you stop?",
+        "Would you say you're a patient learner, or do you want quick results?"
+      ],
+      "follow_ups_fa": [
+        "سخت‌ترین بخش یادگیری در بزرگسالی نسبت به بچگی چیه؟",
+        "چیزی هست که همیشه می‌خواستی یاد بگیری ولی هنوز شروع نکردی؟",
+        "چی انگیزه‌ات رو نگه داشت — یا چی باعث شد کنار بذاری؟",
+        "میگی یادگیرنده‌ی صبوری هستی یا نتیجه‌ی سریع می‌خوای؟"
+      ]
+    },
+    {
+      "id": "seasons-and-where-you-feel-best",
+      "level": "A2",
+      "title_en": "Seasons and where you feel best",
+      "title_fa": "فصل‌ها و جایی که بهترین حس را داری",
+      "partner_name": "Alex",
+      "opening_en": "What's your favorite season, and why does it suit you?",
+      "follow_ups_en": [
+        "Is there a place that feels most like 'you'?",
+        "Does the weather actually affect your mood, do you think?",
+        "What does a perfect day in your favorite season look like?",
+        "Is there a season you've grown to like more as you've gotten older?"
+      ],
+      "follow_ups_fa": [
+        "جایی هست که بیشتر از همه شبیه «خودت» باشه؟",
+        "فکر می‌کنی هوا واقعاً روی حالت اثر می‌ذاره؟",
+        "یک روز عالی توی فصل موردعلاقه‌ات چه شکلیه؟",
+        "فصلی هست که با بزرگ‌تر شدن بیشتر دوستش داشته باشی؟"
+      ]
+    }
+  ]
+}
