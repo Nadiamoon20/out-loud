@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: out-loud
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run setup:fonts
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: ENGINE
+        value: openrouter
+      - key: OPENROUTER_MODEL
+        value: nvidia/nemotron-3-super-120b-a12b:free
+      - key: OPENROUTER_API_KEY
+        sync: false
