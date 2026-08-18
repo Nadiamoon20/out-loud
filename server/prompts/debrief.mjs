@@ -17,7 +17,7 @@ Corrections and upgrades:
 - goal_achieved: for scenario mode, did the learner actually accomplish the stated goal? Judge from the transcript, not from effort. For free-talk topics with no goal, always true with a note that it was open conversation.
 - level_estimate: an honest CEFR band (A2/B1/B2/C1) based on vocabulary range, sentence complexity, and error frequency in this session.
 
-Write all why_fa and reason_fa fields in Persian, aimed at a Persian-speaking adult learner. Write said/natural/upgraded fields in English.`;
+Write all why_fa, reason_fa, and when_to_use fields ONLY in Persian, aimed at a Persian-speaking adult learner — no English, German, or any other language mixed into these fields, not even a single word. Write said/natural/upgraded fields in English.`;
 
 export const DEBRIEF_OUTPUT_SCHEMA = {
   type: 'object',

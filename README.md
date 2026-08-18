@@ -57,7 +57,7 @@ npm start
 
 سقف رایگان OpenRouter محدود است (حدود ۲۰۰ درخواست در روز روی حساب بدون شارژ)
 و فهرست مدل‌های «:free» با زمان عوض می‌شود. مدل پیش‌فرض
-`google/gemini-2.0-flash-exp:free` در `OPENROUTER_MODEL` قابل‌تغییر است —
+`nvidia/nemotron-3-super-120b-a12b:free` در `OPENROUTER_MODEL` قابل‌تغییر است —
 اگر از دسترس خارج شد، از [openrouter.ai/models?max_price=0](https://openrouter.ai/models?max_price=0)
 یکی دیگر انتخاب کن و همان مقدار را در `.env` بگذار؛ کد نیازی به تغییر ندارد.
 

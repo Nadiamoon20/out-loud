@@ -15,7 +15,11 @@ import { COACH_SYSTEM_PROMPT, COACH_OUTPUT_SCHEMA, buildCoachUserMessage } from 
 import { DEBRIEF_SYSTEM_PROMPT, DEBRIEF_OUTPUT_SCHEMA, buildDebriefUserMessage } from '../prompts/debrief.mjs';
 
 const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const DEFAULT_MODEL = 'google/gemini-2.0-flash-exp:free';
+// نکته: مدل باید از response_format:json_schema هم پشتیبانی کند (برای
+// coach/debrief) — همه‌ی مدل‌های «:free» این را رعایت نمی‌کنند، حتی وقتی
+// خودشان به‌خوبی مکالمه می‌کنند (مثلاً gpt-oss-20b:free در تست، schema را
+// نادیده گرفت و متن ساده برگرداند). قبل از تغییر این مقدار، دوتاش را تست کن.
+const DEFAULT_MODEL = 'nvidia/nemotron-3-super-120b-a12b:free';
 
 function model() {
   return process.env.OPENROUTER_MODEL || DEFAULT_MODEL;

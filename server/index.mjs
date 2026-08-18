@@ -194,12 +194,28 @@ async function handleCoach(req, res) {
   res.end(JSON.stringify({ correction }));
 }
 
+function countWords(text) {
+  return (text.trim().match(/\S+/g) || []).length;
+}
+
+// talk_time_percent یک عدد قابل‌شمارش است، نه یک قضاوت — همیشه اینجا از
+// روی خودِ ترنسکریپت محاسبه می‌شود، نه از تخمین مدل (پرامپت debrief هم
+// اصلاً نحوه‌ی محاسبه‌اش را توضیح نمی‌دهد، و مدل‌های رایگان‌تر گاهی همین را
+// صفر برمی‌گردانند).
+function computeTalkTimePercent(transcript) {
+  const userWords = transcript.filter((t) => t.role === 'user').reduce((n, t) => n + countWords(t.text), 0);
+  const partnerWords = transcript.filter((t) => t.role === 'partner').reduce((n, t) => n + countWords(t.text), 0);
+  const total = userWords + partnerWords;
+  return total === 0 ? 0 : Math.round((userWords / total) * 100);
+}
+
 async function handleDebrief(req, res) {
   const body = await readJsonBody(req);
   const { mode, id, transcript = [] } = body;
   const { scenario, topic } = resolveItem({ mode, id });
   const engine = getEngine();
   const result = await engine.debrief({ scenario, topic, transcript });
+  result.talk_time_percent = computeTalkTimePercent(transcript);
   res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify(result));
 }
