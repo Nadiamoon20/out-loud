@@ -1,9 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════
    بلند بگو — Out Loud
-   مفهوم بصری: اتاق ضبط. زمینه‌ی تیره و ساکت، مکالمه‌ی انگلیسی روی یک
-   کارت کاغذیِ گرم مثل فیلم‌نامه، پشتیبانی فارسی در ریلِ کنار.
-   گرم/سرد صرفاً تزیین نیست — همان کدگذاری نوبتِ صحبت است: کهربایی = تو،
-   فیروزه‌ای = طرف مقابل، در نوار گفت‌وگو، حاشیه‌ی رونوشت، و جمع‌بندی.
+   پالت برند khansari.studio: پرسلن (پس‌زمینه‌ی روشن) + گلس (سطح
+   کارت‌ها) + پترول (تیتر/هدر/دکمه) + طلایی (لهجه‌ی تزیینی، هرگز متن
+   بدنه) + اینک (متن بدنه). مکالمه‌ی انگلیسی روی یک کارت کاغذیِ سفید،
+   پشتیبانی فارسی در ریلِ کنار.
+   گرم/سرد صرفاً تزیین نیست — همان کدگذاری نوبتِ صحبت است: طلایی = تو،
+   پترول = طرف مقابل، در نوار گفت‌وگو، حاشیه‌ی رونوشت، و جمع‌بندی.
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── فونت‌ها — همه self-hosted، بدون CDN ───────────────────────── */
@@ -58,25 +60,29 @@
   src: url('/fonts/SchibstedGrotesk-Bold.woff2') format('woff2');
 }
 
-/* ── توکن‌های طراحی ─────────────────────────────────────────────── */
+/* ── توکن‌های طراحی — پالت برند khansari.studio، نسبت ۶۰/۳۰/۱۰ ──────
+   پرسلن ۶۰٪ (پس‌زمینه) · پترول ۳۰٪ (تیتر/هدر/دکمه/نوار) · طلایی ۱۰٪
+   (خط/تأکید/جزئیات — هرگز متن بدنه). نام‌های --you/--partner همان
+   کدگذاریِ نوبتِ گفت‌وگوی قبلی‌اند، فقط حالا به رنگ برند وصل‌اند: تو =
+   طلایی، طرف مقابل = پترول. ──────────────────────────────────────── */
 :root {
-  --stage: #14182b;
-  --stage-lift: #1e2440;
-  --stage-lift-2: #262c4c;
-  --paper: #efeeea;
-  --paper-dim: #e6e4de;
-  --ink: #101322;
-  --ink-soft: #4a4f6b;
-  --you: #e8a33d;
-  --you-soft: #f4d9a8;
-  --you-deep: #a6691f;
-  --partner: #4fbfa8;
-  --partner-soft: #bfe9dd;
-  --partner-deep: #2c8672;
-  --muted: #8a90a8;
-  --line: rgba(239, 238, 234, 0.12);
-  --line-soft: rgba(16, 19, 34, 0.1);
+  --porcelain: #f5f8f7;
+  --glass: #e1ebea;
+  --glass-deep: #d3e2e0;
+  --paper: #ffffff;
+  --petrol: #0f4c55;
+  --petrol-soft: #cfe3e1;
+  --gold: #e3a324;
+  --gold-deep: #8a5f12;
+  --ink: #12211f;
+  --muted: #5c6d68;
+  --line: rgba(18, 33, 31, 0.12);
   --danger: #e2694f;
+
+  --you: var(--gold);
+  --you-deep: var(--gold-deep);
+  --partner: var(--petrol);
+  --partner-soft: var(--petrol-soft);
 
   --font-fa: 'Vazirmatn', Tahoma, sans-serif;
   --font-en-display: 'Instrument Serif', Georgia, serif;
@@ -84,7 +90,7 @@
 
   --radius: 14px;
   --radius-sm: 8px;
-  --shadow-card: 0 18px 40px -20px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 18px 40px -20px rgba(18, 33, 31, 0.16);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -97,8 +103,8 @@
 
 html, body {
   height: 100%;
-  background: var(--stage);
-  color: var(--paper);
+  background: var(--porcelain);
+  color: var(--ink);
   font-family: var(--font-fa);
   -webkit-font-smoothing: antialiased;
 }
@@ -120,7 +126,7 @@ ul { list-style: none; }
 
 /* تمرکز کیبورد — همیشه قابل‌مشاهده */
 :focus-visible {
-  outline: 2.5px solid var(--you);
+  outline: 2.5px solid var(--petrol);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -183,7 +189,7 @@ ul { list-style: none; }
   gap: 8px;
   font-size: 13px;
   color: var(--muted);
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 8px 14px;
@@ -192,15 +198,15 @@ ul { list-style: none; }
 .level-picker select {
   background: transparent;
   border: none;
-  color: var(--paper);
+  color: var(--ink);
   font-weight: 500;
   cursor: pointer;
 }
-.level-picker select option { background: var(--stage-lift); }
+.level-picker select option { background: var(--glass); }
 
 /* ── مرور امروز ── */
 .warmup {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 20px;
@@ -238,7 +244,7 @@ ul { list-style: none; }
 }
 .warmup-card-fa {
   font-size: 13px;
-  color: var(--ink-soft);
+  color: var(--muted);
   margin-top: 8px;
   display: none;
 }
@@ -264,7 +270,7 @@ ul { list-style: none; }
   cursor: pointer;
   position: relative;
 }
-.lib-tab.is-active { color: var(--paper); }
+.lib-tab.is-active { color: var(--petrol); }
 .lib-tab.is-active::after {
   content: '';
   position: absolute;
@@ -285,7 +291,7 @@ ul { list-style: none; }
 }
 
 .scenario-card, .topic-card {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
@@ -295,7 +301,7 @@ ul { list-style: none; }
 }
 .scenario-card:hover, .topic-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(232, 163, 61, 0.4);
+  border-color: rgba(227, 163, 36, 0.4);
 }
 
 .card-level {
@@ -303,7 +309,7 @@ ul { list-style: none; }
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--stage);
+  color: var(--ink);
   background: var(--partner-soft);
   border-radius: 4px;
   padding: 2px 7px;
@@ -315,7 +321,7 @@ ul { list-style: none; }
   font-style: italic;
   font-size: 21px;
   direction: ltr;
-  color: var(--paper);
+  color: var(--petrol);
   line-height: 1.2;
 }
 
@@ -327,7 +333,7 @@ ul { list-style: none; }
 
 .card-goal {
   font-size: 12.5px;
-  color: var(--you-soft);
+  color: var(--petrol);
   margin-top: 12px;
   line-height: 1.6;
 }
@@ -342,9 +348,9 @@ ul { list-style: none; }
 }
 
 .btn-icon {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
-  color: var(--paper);
+  color: var(--petrol);
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -373,7 +379,7 @@ ul { list-style: none; }
 
 /* ── خلاصه‌ی سناریو، قبل از شروع ── */
 .session-brief {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 24px;
@@ -386,7 +392,7 @@ ul { list-style: none; }
 
 .brief-phrases-label { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
 #brief-phrases-list li {
-  background: rgba(232, 163, 61, 0.1);
+  background: rgba(227, 163, 36, 0.1);
   border-right: 2px solid var(--you);
   border-radius: 4px;
   padding: 8px 12px;
@@ -400,8 +406,8 @@ ul { list-style: none; }
   display: block;
   width: 100%;
   margin-top: 22px;
-  background: var(--you);
-  color: #241505;
+  background: var(--petrol);
+  color: var(--porcelain);
   font-weight: 700;
   font-size: 15px;
   border: none;
@@ -410,7 +416,7 @@ ul { list-style: none; }
   cursor: pointer;
   transition: filter 0.15s ease;
 }
-.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:hover { filter: brightness(1.15); }
 
 .btn-ghost {
   background: none;
@@ -421,7 +427,7 @@ ul { list-style: none; }
   font-size: 13px;
   cursor: pointer;
 }
-.btn-ghost:hover { color: var(--paper); border-color: var(--muted); }
+.btn-ghost:hover { color: var(--petrol); border-color: var(--petrol); }
 
 /* ── بدنه‌ی جلسه: صحنه + ریل ── */
 .session-body {
@@ -432,7 +438,7 @@ ul { list-style: none; }
 }
 
 .stage {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 4px;
@@ -477,7 +483,7 @@ ul { list-style: none; }
 }
 
 .bubble.partner { margin-inline-end: auto; }
-.bubble.partner .bubble-label { color: var(--partner-deep); }
+.bubble.partner .bubble-label { color: var(--partner); }
 .bubble.partner .bubble-text { border-right-color: var(--partner); }
 
 .bubble.user { margin-inline-start: auto; }
@@ -500,7 +506,7 @@ ul { list-style: none; }
 
 /* ── ریل فارسی ── */
 .rail {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
@@ -520,14 +526,14 @@ ul { list-style: none; }
   border-bottom: 1px solid var(--line);
 }
 .rail-phrase-list li:last-child { border-bottom: none; }
-.rail-phrase-en { direction: ltr; display: block; color: var(--paper); }
+.rail-phrase-en { direction: ltr; display: block; color: var(--ink); }
 .rail-phrase-fa { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
 
 .rail-empty { font-size: 12.5px; color: var(--muted); line-height: 1.7; }
 
 .correction-card {
-  background: rgba(232, 163, 61, 0.08);
-  border: 1px solid rgba(232, 163, 61, 0.25);
+  background: rgba(227, 163, 36, 0.08);
+  border: 1px solid rgba(227, 163, 36, 0.25);
   border-radius: var(--radius-sm);
   padding: 12px;
   margin-bottom: 10px;
@@ -545,7 +551,7 @@ ul { list-style: none; }
   direction: ltr;
   text-align: left;
   font-size: 15px;
-  color: var(--you);
+  color: var(--you-deep);
   font-weight: 600;
   margin-top: 3px;
 }
@@ -570,7 +576,7 @@ ul { list-style: none; }
   height: 10px;
   border-radius: 999px;
   overflow: hidden;
-  background: var(--stage-lift-2);
+  background: var(--glass-deep);
 }
 .ribbon-seg { transition: flex-basis 0.4s ease; }
 .ribbon-seg.you { background: var(--you); }
@@ -592,7 +598,7 @@ ul { list-style: none; }
 }
 .dot-you { background: var(--you); }
 .dot-partner { background: var(--partner); }
-.ribbon-legend b { color: var(--paper); }
+.ribbon-legend b { color: var(--ink); }
 
 .turn-form {
   display: flex;
@@ -605,9 +611,9 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1.5px solid var(--you);
-  color: var(--you);
+  color: var(--you-deep);
   border-radius: 999px;
   padding: 0 18px;
   font-size: 13.5px;
@@ -619,12 +625,12 @@ ul { list-style: none; }
 .btn-mic .mic-icon { font-size: 10px; }
 .btn-mic[aria-pressed='true'] {
   background: var(--you);
-  color: #241505;
+  color: var(--ink);
   animation: mic-pulse 1.2s ease-in-out infinite;
 }
 @keyframes mic-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.5); }
-  50% { box-shadow: 0 0 0 8px rgba(232, 163, 61, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(227, 163, 36, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(227, 163, 36, 0); }
 }
 
 .turn-text {
@@ -637,12 +643,12 @@ ul { list-style: none; }
   padding: 0 18px;
   font-size: 15px;
 }
-.turn-text::placeholder { color: var(--ink-soft); }
+.turn-text::placeholder { color: var(--muted); }
 
 .btn-send {
   flex-shrink: 0;
   background: var(--partner);
-  color: #06231d;
+  color: var(--porcelain);
   border: none;
   border-radius: 999px;
   padding: 0 20px;
@@ -669,7 +675,7 @@ ul { list-style: none; }
 .debrief-eyebrow {
   font-size: 12px;
   letter-spacing: 0.08em;
-  color: var(--you);
+  color: var(--you-deep);
   text-transform: uppercase;
   margin-bottom: 6px;
 }
@@ -686,7 +692,7 @@ ul { list-style: none; }
   margin-bottom: 28px;
 }
 .stat-card {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 16px;
@@ -696,7 +702,7 @@ ul { list-style: none; }
 .stat-number { font-family: var(--font-en-display); font-style: italic; font-size: 30px; }
 .stat-reason { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.7; }
 #stat-goal.is-achieved .stat-value { color: var(--partner); }
-#stat-goal.is-missed .stat-value { color: var(--you); }
+#stat-goal.is-missed .stat-value { color: var(--you-deep); }
 
 .debrief-did-well, .upgrades-section, .corrections-section, .missed-section {
   margin-bottom: 28px;
@@ -709,7 +715,7 @@ ul { list-style: none; }
 }
 
 .did-well-quote {
-  background: var(--stage-lift);
+  background: var(--glass);
   border-right: 3px solid var(--partner);
   border-radius: var(--radius-sm);
   padding: 18px 20px;
@@ -717,7 +723,7 @@ ul { list-style: none; }
   font-style: italic;
   font-size: 20px;
   line-height: 1.5;
-  color: var(--paper);
+  color: var(--petrol);
 }
 
 /* ── کارت ارتقا: لحظه‌ی امضادار طراحی ── */
@@ -733,7 +739,7 @@ ul { list-style: none; }
   direction: ltr;
   text-align: left;
   font-size: 14px;
-  color: var(--ink-soft);
+  color: var(--muted);
   text-decoration: line-through;
   text-decoration-color: var(--danger);
   text-decoration-thickness: 1.5px;
@@ -755,11 +761,11 @@ ul { list-style: none; }
 .upgrade-register {
   margin-top: 10px;
   font-size: 12px;
-  color: var(--ink-soft);
+  color: var(--muted);
 }
 
 .correction-list-item, .missed-item {
-  background: var(--stage-lift);
+  background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 14px 16px;
@@ -783,9 +789,9 @@ ul { list-style: none; }
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--stage-lift-2);
+  background: var(--glass-deep);
   border: 1px solid var(--line);
-  color: var(--paper);
+  color: var(--ink);
   padding: 10px 20px;
   border-radius: 999px;
   font-size: 13px;
