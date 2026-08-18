@@ -21,19 +21,30 @@
 - بدون فریم‌ورک، بدون bundler — فایل‌های `.mjs` ساده، هم‌سبک با پروژه‌ی
   خواهر `News Studio`.
 
-## معماری موتور (mock ⇄ claude)
+## معماری موتور (mock ⇄ claude ⇄ openrouter)
 
-پشت یک اینترفیس یکسان در `server/engine/index.mjs`، انتخاب با `ENGINE` در
-`.env`:
+پشت یک اینترفیس یکسان (`streamTurn` / `coach` / `debrief`) در
+`server/engine/index.mjs`، انتخاب با `ENGINE` در `.env`:
 
-- **`ENGINE=mock`** (پیش‌فرض فعلی) — بدون کلید API کار می‌کند؛ مکالمه از
-  پیش نوشته‌شده، تصحیح قانون‌محور (خطاهای رایج فارسی‌زبان‌ها مثل «I am
-  agree»)، جمع‌بندی از متن گفت‌وگو محاسبه می‌شود. `server/engine/mock.mjs`.
-- **`ENGINE=claude`** — نیازمند `ANTHROPIC_API_KEY`، مدل `claude-opus-5`.
-  `server/engine/claude.mjs` کلاینت Anthropic را فقط در اولین فراخوانی واقعی
-  می‌سازد (import امن حتی بدون کلید). **هنوز در برابر API واقعی تست نشده** —
-  وقتی کاربر کلید گرفت، `ENGINE=claude` را در `.env` فعال کن و کل فلو را
-  دوباره تست کن.
+- **`ENGINE=mock`** — بدون کلید API کار می‌کند؛ مکالمه از پیش نوشته‌شده،
+  تصحیح قانون‌محور (خطاهای رایج فارسی‌زبان‌ها مثل «I am agree»)، جمع‌بندی
+  از متن گفت‌وگو محاسبه می‌شود. `server/engine/mock.mjs`.
+- **`ENGINE=claude`** — نیازمند `ANTHROPIC_API_KEY` (پولی)، مدل
+  `claude-opus-5`. `server/engine/claude.mjs` از `@anthropic-ai/sdk` و فرمت
+  Messages استفاده می‌کند؛ کلاینت را فقط در اولین فراخوانی واقعی می‌سازد
+  (import امن حتی بدون کلید). **هنوز در برابر API واقعی تست نشده.**
+- **`ENGINE=openrouter`** (پیش‌فرض فعلی روی این ماشین) — رایگان؛ نیازمند
+  `OPENROUTER_API_KEY` از [openrouter.ai/keys](https://openrouter.ai/keys)
+  (بدون کارت بانکی، سقف روزانه‌ی رایگان محدود — حدود ۲۰۰ درخواست/روز).
+  `server/engine/openrouter.mjs` با `fetch` خام و فرمت سازگار با OpenAI
+  (`/chat/completions`) کار می‌کند، نه با SDK آنتروپیک — چون OpenRouter
+  اندپوینت هم‌فرمتِ Messages ندارد. مدل پیش‌فرض در `OPENROUTER_MODEL`
+  (`google/gemini-2.0-flash-exp:free`) قابل‌تغییر است؛ فهرست مدل‌های
+  رایگان روی OpenRouter می‌چرخد — اگر این مدل از دسترس خارج شد، از
+  [openrouter.ai/models?max_price=0](https://openrouter.ai/models?max_price=0)
+  یکی دیگر انتخاب و در `.env` جایگزین کن، بدون نیاز به تغییر کد.
+  **کلید واقعی هنوز در `.env` گذاشته نشده** — کاربر باید خودش بسازد و
+  جایگزین کند، بعد این موتور را تست کنیم.
 
 ## نکته‌ی فنی مهم (باگ رفع‌شده، دوباره تکرار نشود)
 
@@ -48,7 +59,7 @@ UA در برابر قاعده‌ی نویسنده با تخصیص برابر م�
 |---|---|
 | `server/index.mjs` | سرور `node:http` — بدون فریم‌ورک |
 | `server/engine/index.mjs` | انتخاب‌گر موتور بر اساس `ENGINE` |
-| `server/engine/mock.mjs` / `claude.mjs` | دو پیاده‌سازیِ همان اینترفیس |
+| `server/engine/mock.mjs` / `claude.mjs` / `openrouter.mjs` | سه پیاده‌سازیِ همان اینترفیس |
 | `server/prompts/` | پرامپت سیستمی سه بخش: طرف مقابل، مربی (تصحیح)، جمع‌بندی |
 | `content/scenarios.json` | ۱۲ سناریوی هدف‌دار |
 | `content/topics.json` | ۱۲ موضوع گفت‌وگوی آزاد |

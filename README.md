@@ -30,6 +30,10 @@ npm start
 
 ## وقتی کلید API گرفتی
 
+دو گزینه هست: **Claude** (پولی، باکیفیت‌ترین) یا **OpenRouter** (رایگان).
+
+### گزینه‌ی ۱ — Claude Opus 5 (پولی)
+
 ۱. یک کلید از [console.anthropic.com](https://console.anthropic.com) بگیر.
 ۲. در فایل `.env`:
    ```
@@ -40,8 +44,25 @@ npm start
    با Claude Opus 5 جواب می‌دهد، تصحیح‌ها هوشمندتر می‌شوند، و جمع‌بندی از تحلیل
    واقعی مکالمه می‌آید.
 
-هیچ کد دیگری لازم نیست عوض شود — موتور mock و موتور claude پشت یک اینترفیس
-یکسان‌اند (`server/engine/index.mjs`).
+### گزینه‌ی ۲ — یک مدل رایگان روی OpenRouter
+
+۱. یک حساب رایگان در [openrouter.ai/keys](https://openrouter.ai/keys) بساز
+   (فقط ایمیل یا گیت‌هاب، بدون کارت بانکی) و یک کلید بگیر.
+۲. در فایل `.env`:
+   ```
+   ENGINE=openrouter
+   OPENROUTER_API_KEY=sk-or-...
+   ```
+۳. سرور را دوباره اجرا کن.
+
+سقف رایگان OpenRouter محدود است (حدود ۲۰۰ درخواست در روز روی حساب بدون شارژ)
+و فهرست مدل‌های «:free» با زمان عوض می‌شود. مدل پیش‌فرض
+`google/gemini-2.0-flash-exp:free` در `OPENROUTER_MODEL` قابل‌تغییر است —
+اگر از دسترس خارج شد، از [openrouter.ai/models?max_price=0](https://openrouter.ai/models?max_price=0)
+یکی دیگر انتخاب کن و همان مقدار را در `.env` بگذار؛ کد نیازی به تغییر ندارد.
+
+هیچ کد دیگری لازم نیست عوض شود — هر سه موتور (mock، claude، openrouter) پشت
+یک اینترفیس یکسان‌اند (`server/engine/index.mjs`).
 
 ## ساختار پروژه
 
@@ -49,8 +70,9 @@ npm start
 content/scenarios.json     ۱۲ سناریوی هدف‌دار (۶ کاری + ۶ روزمره)
 content/topics.json        ۱۲ موضوع گفت‌وگوی آزاد
 server/index.mjs           سرور node:http — بدون فریم‌ورک
-server/engine/mock.mjs     موتور آفلاین — بدون کلید کار می‌کند
-server/engine/claude.mjs   موتور واقعی — با Claude Opus 5
+server/engine/mock.mjs       موتور آفلاین — بدون کلید کار می‌کند
+server/engine/claude.mjs     موتور واقعی — با Claude Opus 5 (پولی)
+server/engine/openrouter.mjs موتور رایگان — با یک مدل «:free» روی OpenRouter
 server/prompts/            پرامپت‌های سیستمی هر سه بخش (طرف مقابل / مربی / جمع‌بندی)
 public/                    رابط کاربری — بدون فریم‌ورک، بدون build step
 public/lib/store.mjs       بانک عبارات با سیستم Leitner (localStorage)
